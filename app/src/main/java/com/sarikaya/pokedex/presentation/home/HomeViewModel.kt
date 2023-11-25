@@ -23,11 +23,6 @@ class HomeViewModel @Inject constructor(
     private val _pokemonListLiveData: MutableLiveData<Resource<PokemonList>> = MutableLiveData()
     val pokemonListLiveData = _pokemonListLiveData
 
-//    val pokemonListFlow = MutableStateFlow<PagingData<PokemonListItem>>(PagingData.empty())
-//    val pokemonPager: Flow<PagingData<PokemonListItem>> = Pager(PagingConfig(pageSize = PAGE_LIMIT)) {
-//        PokemonPagingSource(useCaseWrapper)
-//    }.flow
-
     private val _pokemonSearchLiveData: MutableLiveData<Resource<PokemonList>> = MutableLiveData()
     val pokemonSearchLiveData = _pokemonSearchLiveData
 
@@ -51,17 +46,6 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
-
-//    fun getPokemonList() {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            val flow = Pager(PagingConfig(pageSize = PAGE_LIMIT)) {
-//                PokemonPagingSource(useCaseWrapper)
-//            }.flow
-//            flow.collectLatest { pagingData ->
-//                pokemonListFlow.value = pagingData
-//            }
-//        }
-//    }
 
     fun searchPokemon(pokeId: String) {
         viewModelScope.launch(Dispatchers.IO) {
